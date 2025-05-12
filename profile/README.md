@@ -70,6 +70,27 @@
    - Document new features, APIs, or significant changes
    - Ensure code matches established project style guides and patterns
 
+## Security Best Practices
+
+1. **Protecting Sensitive Information**
+   - NEVER commit secrets, API keys, credentials, or sensitive configuration directly to the repository
+   - Use environment variables and secure secret management tools
+   - Implement and enforce `.gitignore` to prevent accidental commits of sensitive files
+   - Immediately rotate credentials if they are accidentally exposed
+
+2. **Secrets and Credentials Management**
+   - Use GitHub Secrets for storing sensitive information in CI/CD workflows
+   - Avoid hardcoding any credentials in code or configuration files
+   - Regularly audit and rotate access tokens and secrets
+
+### If you accidentally commit a secret:
+  1. Do NOT just delete the commit
+  2. Immediately rotate all exposed credentials
+  3. Remove the secret from the entire Git history using `git filter-branch`
+  4. Notify the team
+
+**Warning**: A single exposed secret can compromise entire systems. Always treat credentials and sensitive information with the highest level of care and caution.
+
 ## Additional Information
 
 - These guidelines are mandatory for critical projects
